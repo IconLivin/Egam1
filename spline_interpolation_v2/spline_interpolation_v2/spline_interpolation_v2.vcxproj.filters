@@ -42,11 +42,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="app.rc">
-      <Filter>Файлы ресурсов</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Form1.resX">
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>

@@ -103,9 +103,6 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="app.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Form1.resX">
       <DependentUpon>Form1.h</DependentUpon>
       <SubType>Designer</SubType>

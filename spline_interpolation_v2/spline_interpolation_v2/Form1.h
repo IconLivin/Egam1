@@ -890,9 +890,15 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	double arr[8];
 	for (int i = 0; i < 8; ++i) {
 		arr[i] = a + rand() % (b - a);
-		xs.push_back(a + rand() % (b - a));
+		
 	}
-	
+	xs.push_back(a + rand() % (b - a));
+	while (xs.size() < 8) {
+		int val = a + rand() % (b - a);
+		if (std::find(xs.begin(), xs.end(), val) == xs.end()) {
+			xs.push_back(val);
+		}
+	}
 	std::sort(xs.begin(), xs.end());
 
 	this->textBox8->Text = Convert::ToString(arr[0]);

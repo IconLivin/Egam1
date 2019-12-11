@@ -1,6 +1,7 @@
 #include <fstream> 
 #include "spline.h"
 #include <vector>
+#include <string>
 #include <algorithm>
 #pragma once
 
@@ -92,6 +93,7 @@ namespace spline_interpolation_v2 {
 	private: System::Windows::Forms::Label^ label19;
 	private: System::Windows::Forms::Label^ label20;
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::CheckBox^ gend;
 
 
 
@@ -167,6 +169,7 @@ namespace spline_interpolation_v2 {
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->gend = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			this->SuspendLayout();
@@ -174,44 +177,74 @@ namespace spline_interpolation_v2 {
 			// chart1
 			// 
 			this->chart1->AntiAliasing = System::Windows::Forms::DataVisualization::Charting::AntiAliasingStyles::None;
-			chartArea1->AlignmentOrientation = static_cast<System::Windows::Forms::DataVisualization::Charting::AreaAlignmentOrientations>((System::Windows::Forms::DataVisualization::Charting::AreaAlignmentOrientations::Vertical | System::Windows::Forms::DataVisualization::Charting::AreaAlignmentOrientations::Horizontal));
-			chartArea1->AxisX->ArrowStyle = System::Windows::Forms::DataVisualization::Charting::AxisArrowStyle::Lines;
+			chartArea1->AxisX->Crossing = 1.7976931348623157E+308;
 			chartArea1->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
+			chartArea1->AxisX->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->IsLabelAutoFit = false;
+			chartArea1->AxisX->IsMarginVisible = false;
 			chartArea1->AxisX->IsStartedFromZero = false;
-			chartArea1->AxisX->LabelStyle->Format = L"0";
-			chartArea1->AxisX->MajorGrid->Interval = 0;
-			chartArea1->AxisX->MajorGrid->IntervalOffset = 0;
-			chartArea1->AxisX->MajorGrid->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Auto;
-			chartArea1->AxisX->MajorGrid->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Auto;
-			chartArea1->AxisX->MajorTickMark->Interval = 0;
-			chartArea1->AxisX->MajorTickMark->IntervalOffset = 0;
-			chartArea1->AxisX->MajorTickMark->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Auto;
-			chartArea1->AxisX->MajorTickMark->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Auto;
-			chartArea1->AxisX->MajorTickMark->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::NotSet;
-			chartArea1->AxisX2->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
-			chartArea1->AxisX2->IsStartedFromZero = false;
+			chartArea1->AxisX->LabelAutoFitMaxFontSize = 5;
+			chartArea1->AxisX->LabelAutoFitMinFontSize = 5;
+			chartArea1->AxisX->LabelStyle->Interval = 0;
+			chartArea1->AxisX->LabelStyle->IntervalOffset = 0;
+			chartArea1->AxisX->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->LabelStyle->IsStaggered = true;
+			chartArea1->AxisX->LabelStyle->TruncatedLabels = true;
+			chartArea1->AxisX->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisX->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisX->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisX->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisX->MaximumAutoSize = 90;
+			chartArea1->AxisX->ScaleBreakStyle->BreakLineStyle = System::Windows::Forms::DataVisualization::Charting::BreakLineStyle::Wave;
+			chartArea1->AxisX->ScaleBreakStyle->Enabled = true;
 			chartArea1->AxisY->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
-			chartArea1->AxisY->IsStartedFromZero = false;
-			chartArea1->AxisY2->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
-			chartArea1->AxisY2->IsStartedFromZero = false;
+			chartArea1->AxisY->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->IsLabelAutoFit = false;
+			chartArea1->AxisY->IsMarksNextToAxis = false;
+			chartArea1->AxisY->LabelStyle->Interval = 0;
+			chartArea1->AxisY->LabelStyle->IntervalOffset = 0;
+			chartArea1->AxisY->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->LabelStyle->IsStaggered = true;
+			chartArea1->AxisY->LabelStyle->TruncatedLabels = true;
+			chartArea1->AxisY->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisY->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisY->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisY->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisY->MaximumAutoSize = 90;
 			chartArea1->Name = L"ChartArea1";
 			this->chart1->ChartAreas->Add(chartArea1);
 			this->chart1->Location = System::Drawing::Point(41, 149);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series1->BackGradientStyle = System::Windows::Forms::DataVisualization::Charting::GradientStyle::VerticalCenter;
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->CustomProperties = L"IsXAxisQuantitative=False, EmptyPointValue=Zero, LabelStyle=Top";
 			series1->LabelBorderWidth = 5;
+			series1->MarkerBorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			series1->MarkerBorderWidth = 2;
-			series1->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			series1->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			series1->Name = L"Series1";
+			series1->SmartLabelStyle->AllowOutsidePlotArea = System::Windows::Forms::DataVisualization::Charting::LabelOutsidePlotAreaStyle::No;
+			series1->SmartLabelStyle->CalloutLineAnchorCapStyle = System::Windows::Forms::DataVisualization::Charting::LineAnchorCapStyle::Diamond;
 			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series2->Label = L"[#VALX, #VAL]";
+			series2->MarkerBorderColor = System::Drawing::Color::Black;
+			series2->MarkerBorderWidth = 4;
+			series2->MarkerColor = System::Drawing::Color::Black;
+			series2->MarkerSize = 8;
+			series2->MarkerStyle = System::Windows::Forms::DataVisualization::Charting::MarkerStyle::Square;
 			series2->Name = L"Series2";
+			series2->SmartLabelStyle->CalloutLineColor = System::Drawing::Color::White;
+			series2->SmartLabelStyle->CalloutLineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Dash;
+			series2->SmartLabelStyle->CalloutLineWidth = 3;
+			series2->YValuesPerPoint = 2;
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
 			this->chart1->Size = System::Drawing::Size(732, 415);
@@ -600,12 +633,23 @@ namespace spline_interpolation_v2 {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &Form1::button4_Click);
 			// 
+			// gend
+			// 
+			this->gend->AutoSize = true;
+			this->gend->Location = System::Drawing::Point(657, 149);
+			this->gend->Name = L"gend";
+			this->gend->Size = System::Drawing::Size(112, 17);
+			this->gend->TabIndex = 37;
+			this->gend->Text = L"Generate Doubles";
+			this->gend->UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->ClientSize = System::Drawing::Size(829, 597);
+			this->Controls->Add(this->gend);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->label20);
 			this->Controls->Add(this->label19);
@@ -717,9 +761,11 @@ namespace spline_interpolation_v2 {
 
 				if (std::find(xs.begin(), xs.end(), Convert::ToDouble(this->x2->Text)) == xs.end()) {
 					xs.push_back(Convert::ToDouble(this->x2->Text));
+					
 				}
 				else {
 					this->Errors->Text = "Значения иксов не могут совпадать!";
+					return;
 				}
 
 				if (std::find(xs.begin(), xs.end(), Convert::ToDouble(this->x3->Text)) == xs.end()) {
@@ -727,41 +773,52 @@ namespace spline_interpolation_v2 {
 				}
 				else {
 					this->Errors->Text = "Значения иксов не могут совпадать!";
+					return;
 				}
 				
 				if (std::find(xs.begin(), xs.end(), Convert::ToDouble(this->x4->Text)) == xs.end()) {
 					xs.push_back(Convert::ToDouble(this->x4->Text));
+					
 				}
 				else {
 					this->Errors->Text = "Значения иксов не могут совпадать!";
+					return;
 				}
 
 				if (std::find(xs.begin(), xs.end(), Convert::ToDouble(this->x5->Text)) == xs.end()) {
 					xs.push_back(Convert::ToDouble(this->x5->Text));
+				
 				}
 				else {
 					this->Errors->Text = "Значения иксов не могут совпадать!";
+					return;
 				}
 
 				if (std::find(xs.begin(), xs.end(), Convert::ToDouble(this->x6->Text)) == xs.end()) {
 					xs.push_back(Convert::ToDouble(this->x6->Text));
+					
 				}
 				else {
 					this->Errors->Text = "Значения иксов не могут совпадать!";
+					return;
 				}
 
 				if (std::find(xs.begin(), xs.end(), Convert::ToDouble(this->x7->Text)) == xs.end()) {
 					xs.push_back(Convert::ToDouble(this->x7->Text));
+				
 				}
 				else {
 					this->Errors->Text = "Значения иксов не могут совпадать!";
+					return;
 				}
 
 				if (std::find(xs.begin(), xs.end(), Convert::ToDouble(this->x8->Text)) == xs.end()) {
 					xs.push_back(Convert::ToDouble(this->x8->Text));
+					
 				}
 				else {
 					this->Errors->Text = "Значения иксов не могут совпадать!";
+					return;
 				}
 
 				if (this->textBox8->Text == "") {
@@ -838,6 +895,19 @@ namespace spline_interpolation_v2 {
 					max = max < xs[i] ? xs[i] : max;
 				}
 
+				for (int i = 0; i < xs.size(); i++) {
+					for (int j = i; j < xs.size()-1; j++) {
+						if (xs[j] > xs[j + 1]) {
+							double tmp = xs[j];
+							xs[j] = xs[j + 1];
+							xs[j + 1] = tmp;
+							tmp = ys[j];
+							ys[j] = ys[j + 1];
+							ys[j + 1] = tmp;
+						}
+					}
+				}
+
 				//заносим точки
 				for (int i = 0; i < n; i++)
 				{
@@ -856,14 +926,19 @@ namespace spline_interpolation_v2 {
 				{
 					for(float i = min; i < max; i = i + 0.01)
 					{
-						this->chart1->Series["Series2"]->Points->AddXY(i, cs.f(i));
+						this->chart1->Series["Series1"]->Points->AddXY(i, cs.f(i));
 					}
 				}
 				catch(...)
 				{
 					MessageBox::Show("Invalid function!", "Error!");
 					return;
-				}				
+				}			
+
+				for (int i = 0; i < xs.size(); ++i) {
+					
+					this->chart1->Series["Series2"]->Points->AddXY(xs[i], ys[i]);
+				}
 			}
 	private: System::Void groupBox1_Enter(System::Object^  sender, System::EventArgs^  e) {
 			 }
@@ -878,23 +953,38 @@ private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->chart1->Series["Series1"]->Points->Clear();
+	this->chart1->Series["Series2"]->Points->Clear();
+	this->Errors->Text = "";
+	bool gend = this->gend->Checked;
 	int a=0;
 	if (this->textBox10->Text != "") {
 		a = Convert::ToInt32(this->textBox10->Text);
 	}
-	int b = 1000;
+	int b = 100;
 	if (this->textBox11->Text != "") {
 		b = Convert::ToInt32(this->textBox11->Text);
 	}
-	std::vector<int> xs;
+	if ((b - a) < 8 && !gend) {
+		this->Errors->Text = "Недостаточно точек!";
+		return;
+	}
+	std::vector<double> xs;
 	double arr[8];
 	for (int i = 0; i < 8; ++i) {
 		arr[i] = a + rand() % (b - a);
-		
+		if (gend) {
+			double mantis = double(rand() % 100) / 100;
+			arr[i] += mantis;
+		}
 	}
 	xs.push_back(a + rand() % (b - a));
 	while (xs.size() < 8) {
-		int val = a + rand() % (b - a);
+		double val = a + rand() % (b - a);
+		if (gend) {
+			double mantis = double(rand() % 100) / 100;
+			val += mantis;
+		}
 		if (std::find(xs.begin(), xs.end(), val) == xs.end()) {
 			xs.push_back(val);
 		}

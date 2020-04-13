@@ -26,9 +26,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="func.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h">
@@ -37,7 +34,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="spline.h">
+    <ClInclude Include="runge-kutta.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

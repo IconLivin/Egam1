@@ -12,9 +12,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9411ED9C-AF72-4703-B31E-E6A40E32EAC1}</ProjectGuid>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>spline_interpolation_v2</RootNamespace>
+    <TargetFrameworkVersion>4.7.2</TargetFrameworkVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -88,7 +89,6 @@
     <None Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="func.cpp" />
     <ClCompile Include="spline_interpolation_v2.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -99,7 +99,7 @@
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="spline.h" />
+    <ClInclude Include="runge-kutta.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
 #include "runge-kutta.h"
 #include <iostream>
 #include <iomanip>
+#include <list>
 
 #pragma once
 
@@ -12,6 +13,7 @@ namespace spline_interpolation_v2 {
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
+	using namespace System::Windows::Forms::DataVisualization::Charting;
 	using namespace System::Data;
 	using namespace System::Drawing;
 
@@ -24,9 +26,6 @@ namespace spline_interpolation_v2 {
 		Form1(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
 		}
 
 	protected:
@@ -41,10 +40,7 @@ namespace spline_interpolation_v2 {
 			}
 		}
 
-
-
-
-
+		int num_of_series=0;
 
 
 
@@ -113,6 +109,7 @@ namespace spline_interpolation_v2 {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Label^ changed;
 
 
 
@@ -166,6 +163,7 @@ namespace spline_interpolation_v2 {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->changed = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -266,9 +264,8 @@ namespace spline_interpolation_v2 {
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
 			series1->LabelBorderWidth = 5;
-			series1->MarkerBorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			series1->MarkerBorderWidth = 4;
+			series1->MarkerBorderColor = System::Drawing::Color::Black;
+			series1->MarkerBorderWidth = 2;
 			series1->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			series1->Name = L"Series1";
@@ -408,12 +405,22 @@ namespace spline_interpolation_v2 {
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &Form1::button5_Click);
 			// 
+			// changed
+			// 
+			this->changed->AutoSize = true;
+			this->changed->Location = System::Drawing::Point(738, 38);
+			this->changed->Name = L"changed";
+			this->changed->Size = System::Drawing::Size(0, 13);
+			this->changed->TabIndex = 54;
+			this->changed->Visible = false;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->ClientSize = System::Drawing::Size(829, 597);
+			this->Controls->Add(this->changed);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
@@ -455,18 +462,25 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	double x0dash = this->_xdash0->Text == "" ? 1 : Convert::ToDouble(this->_xdash0->Text);
 	this->_xdash0->Text = Convert::ToString(x0dash);
 
+	if(this->chart1->Series[num_of_series]){
+		this->chart1->Series->Add(Convert::ToString(++num_of_series));
+		this->chart1->Series[num_of_series]->ChartType = SeriesChartType::Line;
+		this->chart1->Series[num_of_series]->Color = Color::Black;
+	}
+
 	std::vector<double> res;
 	std::vector<double> res_v;
-	runge_kutta(begin, end, h, lambda, x0dash, res, res_v);
 	int count = 0;
-	res.pop_back();
-	for (float i = begin + 1; i < end; i+=h) {
-		this->chart1->Series["Series1"]->Points->AddXY(i,res[count]);
-		++count;
+	runge_kutta(begin, end, h, lambda, x0dash, res, res_v);
+	for (double i = begin; i < end; i += h) {
+		this->chart1->Series[num_of_series]->Points->AddXY(i, res[count]);
+		count++;
 	}
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->chart1->Series["Series1"]->Points->Clear();
+	for (int i = 0; i < num_of_series + 1; ++i) {
+		this->chart1->Series[i]->Points->Clear();
+	}
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->end->Text = Convert::ToString(Convert::ToDouble(this->end->Text) + 10);

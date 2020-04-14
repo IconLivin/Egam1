@@ -111,6 +111,7 @@ namespace spline_interpolation_v2 {
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Label^ changed;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Button^ button6;
 
 
 
@@ -141,8 +142,8 @@ namespace spline_interpolation_v2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
@@ -166,6 +167,7 @@ namespace spline_interpolation_v2 {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->changed = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -220,60 +222,60 @@ namespace spline_interpolation_v2 {
 			// chart1
 			// 
 			this->chart1->AntiAliasing = System::Windows::Forms::DataVisualization::Charting::AntiAliasingStyles::None;
-			chartArea1->AxisX->Crossing = 1.7976931348623157E+308;
-			chartArea1->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
-			chartArea1->AxisX->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisX->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisX->IsLabelAutoFit = false;
-			chartArea1->AxisX->IsMarginVisible = false;
-			chartArea1->AxisX->IsStartedFromZero = false;
-			chartArea1->AxisX->LabelAutoFitMaxFontSize = 5;
-			chartArea1->AxisX->LabelAutoFitMinFontSize = 5;
-			chartArea1->AxisX->LabelStyle->Interval = 0;
-			chartArea1->AxisX->LabelStyle->IntervalOffset = 0;
-			chartArea1->AxisX->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisX->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisX->LabelStyle->IsStaggered = true;
-			chartArea1->AxisX->LabelStyle->TruncatedLabels = true;
-			chartArea1->AxisX->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea1->AxisX->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea1->AxisX->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea1->AxisX->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea1->AxisX->MaximumAutoSize = 90;
-			chartArea1->AxisX->ScaleBreakStyle->BreakLineStyle = System::Windows::Forms::DataVisualization::Charting::BreakLineStyle::Wave;
-			chartArea1->AxisX->ScaleBreakStyle->Enabled = true;
-			chartArea1->AxisY->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
-			chartArea1->AxisY->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisY->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisY->IsLabelAutoFit = false;
-			chartArea1->AxisY->IsMarksNextToAxis = false;
-			chartArea1->AxisY->LabelStyle->Interval = 0;
-			chartArea1->AxisY->LabelStyle->IntervalOffset = 0;
-			chartArea1->AxisY->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisY->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea1->AxisY->LabelStyle->IsStaggered = true;
-			chartArea1->AxisY->LabelStyle->TruncatedLabels = true;
-			chartArea1->AxisY->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea1->AxisY->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea1->AxisY->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea1->AxisY->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea1->AxisY->MaximumAutoSize = 90;
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
+			chartArea2->AxisX->Crossing = 1.7976931348623157E+308;
+			chartArea2->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
+			chartArea2->AxisX->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisX->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisX->IsLabelAutoFit = false;
+			chartArea2->AxisX->IsMarginVisible = false;
+			chartArea2->AxisX->IsStartedFromZero = false;
+			chartArea2->AxisX->LabelAutoFitMaxFontSize = 5;
+			chartArea2->AxisX->LabelAutoFitMinFontSize = 5;
+			chartArea2->AxisX->LabelStyle->Interval = 0;
+			chartArea2->AxisX->LabelStyle->IntervalOffset = 0;
+			chartArea2->AxisX->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisX->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisX->LabelStyle->IsStaggered = true;
+			chartArea2->AxisX->LabelStyle->TruncatedLabels = true;
+			chartArea2->AxisX->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea2->AxisX->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea2->AxisX->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea2->AxisX->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea2->AxisX->MaximumAutoSize = 90;
+			chartArea2->AxisX->ScaleBreakStyle->BreakLineStyle = System::Windows::Forms::DataVisualization::Charting::BreakLineStyle::Wave;
+			chartArea2->AxisX->ScaleBreakStyle->Enabled = true;
+			chartArea2->AxisY->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
+			chartArea2->AxisY->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisY->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisY->IsLabelAutoFit = false;
+			chartArea2->AxisY->IsMarksNextToAxis = false;
+			chartArea2->AxisY->LabelStyle->Interval = 0;
+			chartArea2->AxisY->LabelStyle->IntervalOffset = 0;
+			chartArea2->AxisY->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisY->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea2->AxisY->LabelStyle->IsStaggered = true;
+			chartArea2->AxisY->LabelStyle->TruncatedLabels = true;
+			chartArea2->AxisY->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea2->AxisY->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea2->AxisY->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea2->AxisY->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea2->AxisY->MaximumAutoSize = 90;
+			chartArea2->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea2);
 			this->chart1->Location = System::Drawing::Point(41, 149);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series1->LabelBorderWidth = 5;
-			series1->MarkerBorderColor = System::Drawing::Color::Black;
-			series1->MarkerBorderWidth = 2;
-			series1->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series2->LabelBorderWidth = 5;
+			series2->MarkerBorderColor = System::Drawing::Color::Black;
+			series2->MarkerBorderWidth = 2;
+			series2->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			series1->Name = L"Series1";
-			series1->SmartLabelStyle->AllowOutsidePlotArea = System::Windows::Forms::DataVisualization::Charting::LabelOutsidePlotAreaStyle::No;
-			series1->SmartLabelStyle->CalloutLineAnchorCapStyle = System::Windows::Forms::DataVisualization::Charting::LineAnchorCapStyle::Diamond;
-			this->chart1->Series->Add(series1);
+			series2->Name = L"Series1";
+			series2->SmartLabelStyle->AllowOutsidePlotArea = System::Windows::Forms::DataVisualization::Charting::LabelOutsidePlotAreaStyle::No;
+			series2->SmartLabelStyle->CalloutLineAnchorCapStyle = System::Windows::Forms::DataVisualization::Charting::LineAnchorCapStyle::Diamond;
+			this->chart1->Series->Add(series2);
 			this->chart1->Size = System::Drawing::Size(732, 415);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
@@ -399,9 +401,9 @@ namespace spline_interpolation_v2 {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(417, 38);
+			this->button5->Location = System::Drawing::Point(395, 38);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(148, 58);
+			this->button5->Size = System::Drawing::Size(177, 20);
 			this->button5->TabIndex = 53;
 			this->button5->Text = L"Сохранить значения в файл";
 			this->button5->UseVisualStyleBackColor = true;
@@ -425,12 +427,23 @@ namespace spline_interpolation_v2 {
 			this->label5->TabIndex = 55;
 			this->label5->Text = L"Программа сделана студентом 3 курса Антоном Кужелевым";
 			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(395, 76);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(177, 20);
+			this->button6->TabIndex = 56;
+			this->button6->Text = L"Фазовый портрет";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &Form1::button6_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->ClientSize = System::Drawing::Size(829, 597);
+			this->Controls->Add(this->button6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->changed);
 			this->Controls->Add(this->button5);
@@ -525,6 +538,13 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		ofs << res[count] << std::setw(20) << res_v[count] << std::setw(20) << i << std::endl;
 		++count;
 	}
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	for (int i = -5; i < 6; ++i) {
+		this->_xdash0->Text = Convert::ToString(i);
+		button1_Click(sender, e);
+	}
+
 }
 };
 }

@@ -14,8 +14,9 @@
     <ProjectGuid>{9411ED9C-AF72-4703-B31E-E6A40E32EAC1}</ProjectGuid>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>spline_interpolation_v2</RootNamespace>
-    <TargetFrameworkVersion>4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <ProjectName>Runge-Kutta</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

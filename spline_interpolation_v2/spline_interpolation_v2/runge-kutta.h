@@ -6,10 +6,12 @@ double func(double v, double x, double lambda) {
 	return -1 * (lambda * v + sin(x));
 }
 
-void runge_kutta(double begin, double end, double h, double lambda, double x0dash, std::vector<double> &res) {
+void runge_kutta(double begin, double end, double h, double lambda, double x0dash, 
+	std::vector<double> &res, std::vector<double> &res_v) {
 	double _dx = begin, _dv = x0dash;
 	for (double i = begin; i < end; i += h) {
 		res.push_back(_dx);
+		res_v.push_back(_dv);
 		double dx1 = h * _dv;
 		double dv1 = h * func(_dv, _dx, lambda);
 

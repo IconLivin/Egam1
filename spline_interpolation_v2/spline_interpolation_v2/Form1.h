@@ -2,6 +2,7 @@
 #include <string>
 #include "runge-kutta.h"
 #include <iostream>
+#include <iomanip>
 
 #pragma once
 
@@ -111,8 +112,9 @@ namespace spline_interpolation_v2 {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::Label^ prev_dx;
-	private: System::Windows::Forms::Label^ prev_dv;
+	private: System::Windows::Forms::Button^ button5;
+
+
 
 
 
@@ -163,8 +165,7 @@ namespace spline_interpolation_v2 {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->prev_dx = (gcnew System::Windows::Forms::Label());
-			this->prev_dv = (gcnew System::Windows::Forms::Label());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -397,21 +398,15 @@ namespace spline_interpolation_v2 {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &Form1::button4_Click);
 			// 
-			// prev_dx
+			// button5
 			// 
-			this->prev_dx->AutoSize = true;
-			this->prev_dx->Location = System::Drawing::Point(703, 24);
-			this->prev_dx->Name = L"prev_dx";
-			this->prev_dx->Size = System::Drawing::Size(0, 13);
-			this->prev_dx->TabIndex = 53;
-			// 
-			// prev_dv
-			// 
-			this->prev_dv->AutoSize = true;
-			this->prev_dv->Location = System::Drawing::Point(703, 58);
-			this->prev_dv->Name = L"prev_dv";
-			this->prev_dv->Size = System::Drawing::Size(0, 13);
-			this->prev_dv->TabIndex = 54;
+			this->button5->Location = System::Drawing::Point(417, 38);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(148, 58);
+			this->button5->TabIndex = 53;
+			this->button5->Text = L"Сохранить значения в файл";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &Form1::button5_Click);
 			// 
 			// Form1
 			// 
@@ -419,8 +414,7 @@ namespace spline_interpolation_v2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->ClientSize = System::Drawing::Size(829, 597);
-			this->Controls->Add(this->prev_dv);
-			this->Controls->Add(this->prev_dx);
+			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->label9);
@@ -462,12 +456,11 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->_xdash0->Text = Convert::ToString(x0dash);
 
 	std::vector<double> res;
-	runge_kutta(begin, end, h, lambda, x0dash, res);
+	std::vector<double> res_v;
+	runge_kutta(begin, end, h, lambda, x0dash, res, res_v);
 	int count = 0;
-	this->prev_dv->Text = Convert::ToString(res[res.size() - 1]);
 	res.pop_back();
-	this->prev_dx->Text = Convert::ToString(res[res.size() - 1]);
-	for (float i = begin; i < end; i+=h) {
+	for (float i = begin + 1; i < end; i+=h) {
 		this->chart1->Series["Series1"]->Points->AddXY(i,res[count]);
 		++count;
 	}
@@ -479,6 +472,33 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	this->end->Text = Convert::ToString(Convert::ToDouble(this->end->Text) + 10);
 
 	button1_Click(sender, e);
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	double begin = this->begin->Text == "" ? 0 : Convert::ToDouble(this->begin->Text);
+	this->begin->Text = Convert::ToString(begin);
+	double end = this->end->Text == "" ? 10 : Convert::ToDouble(this->end->Text);
+	if (end - begin < 15) {
+		end += 15;
+	}
+	this->end->Text = Convert::ToString(end);
+	double h = this->H->Text == "" ? 0.01 : Convert::ToDouble(this->H->Text);
+	this->H->Text = Convert::ToString(h);
+	double lambda = this->lambda->Text == "" ? 3 : Convert::ToDouble(this->lambda->Text);
+	this->lambda->Text = Convert::ToString(lambda);
+	double x0dash = this->_xdash0->Text == "" ? 1 : Convert::ToDouble(this->_xdash0->Text);
+	this->_xdash0->Text = Convert::ToString(x0dash);
+
+	std::vector<double> res;
+	std::vector<double> res_v;
+	runge_kutta(begin, end, h, lambda, x0dash, res, res_v);
+	int count = 0;
+	std::ofstream ofs;
+	ofs.open("Output.txt");
+	ofs << "x" << std::setw(20) << "v" << std::setw(20) << "t" << std::endl;
+	for (double i = begin; i < end; i += h) {
+		ofs << res[count] << std::setw(20) << res_v[count] << std::setw(20) << i << std::endl;
+		++count;
+	}
 }
 };
 }

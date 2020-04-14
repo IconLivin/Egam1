@@ -110,6 +110,7 @@ namespace spline_interpolation_v2 {
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Label^ changed;
+	private: System::Windows::Forms::Label^ label5;
 
 
 
@@ -164,6 +165,7 @@ namespace spline_interpolation_v2 {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->changed = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -414,12 +416,22 @@ namespace spline_interpolation_v2 {
 			this->changed->TabIndex = 54;
 			this->changed->Visible = false;
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(499, 567);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(318, 13);
+			this->label5->TabIndex = 55;
+			this->label5->Text = L"Программа сделана студентом 3 курса Антоном Кужелевым";
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->ClientSize = System::Drawing::Size(829, 597);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->changed);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);

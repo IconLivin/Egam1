@@ -111,7 +111,11 @@ namespace spline_interpolation_v2 {
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Label^ changed;
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Button^ button6;
+
+	private: System::Windows::Forms::TextBox^ _x0;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::TextBox^ C;
+	private: System::Windows::Forms::Label^ label11;
 
 
 
@@ -142,8 +146,8 @@ namespace spline_interpolation_v2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
@@ -167,7 +171,10 @@ namespace spline_interpolation_v2 {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->changed = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->_x0 = (gcnew System::Windows::Forms::TextBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->C = (gcnew System::Windows::Forms::TextBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -222,63 +229,64 @@ namespace spline_interpolation_v2 {
 			// chart1
 			// 
 			this->chart1->AntiAliasing = System::Windows::Forms::DataVisualization::Charting::AntiAliasingStyles::None;
-			chartArea2->AxisX->Crossing = 1.7976931348623157E+308;
-			chartArea2->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
-			chartArea2->AxisX->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisX->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisX->IsLabelAutoFit = false;
-			chartArea2->AxisX->IsMarginVisible = false;
-			chartArea2->AxisX->IsStartedFromZero = false;
-			chartArea2->AxisX->LabelAutoFitMaxFontSize = 5;
-			chartArea2->AxisX->LabelAutoFitMinFontSize = 5;
-			chartArea2->AxisX->LabelStyle->Interval = 0;
-			chartArea2->AxisX->LabelStyle->IntervalOffset = 0;
-			chartArea2->AxisX->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisX->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisX->LabelStyle->IsStaggered = true;
-			chartArea2->AxisX->LabelStyle->TruncatedLabels = true;
-			chartArea2->AxisX->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea2->AxisX->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea2->AxisX->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea2->AxisX->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea2->AxisX->MaximumAutoSize = 90;
-			chartArea2->AxisX->ScaleBreakStyle->BreakLineStyle = System::Windows::Forms::DataVisualization::Charting::BreakLineStyle::Wave;
-			chartArea2->AxisX->ScaleBreakStyle->Enabled = true;
-			chartArea2->AxisY->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
-			chartArea2->AxisY->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisY->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisY->IsLabelAutoFit = false;
-			chartArea2->AxisY->IsMarksNextToAxis = false;
-			chartArea2->AxisY->LabelStyle->Interval = 0;
-			chartArea2->AxisY->LabelStyle->IntervalOffset = 0;
-			chartArea2->AxisY->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisY->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
-			chartArea2->AxisY->LabelStyle->IsStaggered = true;
-			chartArea2->AxisY->LabelStyle->TruncatedLabels = true;
-			chartArea2->AxisY->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea2->AxisY->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea2->AxisY->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
-			chartArea2->AxisY->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
-			chartArea2->AxisY->MaximumAutoSize = 90;
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
+			chartArea1->AxisX->Crossing = 1.7976931348623157E+308;
+			chartArea1->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
+			chartArea1->AxisX->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->IsLabelAutoFit = false;
+			chartArea1->AxisX->IsMarginVisible = false;
+			chartArea1->AxisX->IsStartedFromZero = false;
+			chartArea1->AxisX->LabelAutoFitMaxFontSize = 5;
+			chartArea1->AxisX->LabelAutoFitMinFontSize = 5;
+			chartArea1->AxisX->LabelStyle->Interval = 0;
+			chartArea1->AxisX->LabelStyle->IntervalOffset = 0;
+			chartArea1->AxisX->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisX->LabelStyle->IsStaggered = true;
+			chartArea1->AxisX->LabelStyle->TruncatedLabels = true;
+			chartArea1->AxisX->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisX->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisX->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisX->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisX->MaximumAutoSize = 90;
+			chartArea1->AxisX->ScaleBreakStyle->BreakLineStyle = System::Windows::Forms::DataVisualization::Charting::BreakLineStyle::Wave;
+			chartArea1->AxisX->ScaleBreakStyle->Enabled = true;
+			chartArea1->AxisY->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
+			chartArea1->AxisY->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->IsLabelAutoFit = false;
+			chartArea1->AxisY->IsMarksNextToAxis = false;
+			chartArea1->AxisY->LabelStyle->Interval = 0;
+			chartArea1->AxisY->LabelStyle->IntervalOffset = 0;
+			chartArea1->AxisY->LabelStyle->IntervalOffsetType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->LabelStyle->IntervalType = System::Windows::Forms::DataVisualization::Charting::DateTimeIntervalType::Number;
+			chartArea1->AxisY->LabelStyle->IsStaggered = true;
+			chartArea1->AxisY->LabelStyle->TruncatedLabels = true;
+			chartArea1->AxisY->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisY->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisY->MajorGrid->LineColor = System::Drawing::SystemColors::ActiveCaption;
+			chartArea1->AxisY->MajorGrid->LineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::DashDot;
+			chartArea1->AxisY->MaximumAutoSize = 90;
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			
 			this->chart1->Location = System::Drawing::Point(41, 149);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series2->LabelBorderWidth = 5;
-			series2->MarkerBorderColor = System::Drawing::Color::Black;
-			series2->MarkerBorderWidth = 2;
-			series2->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series1->LabelBorderWidth = 5;
+			series1->MarkerBorderColor = System::Drawing::Color::Black;
+			series1->MarkerBorderWidth = 2;
+			series1->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			series2->Name = L"Series1";
-			series2->SmartLabelStyle->AllowOutsidePlotArea = System::Windows::Forms::DataVisualization::Charting::LabelOutsidePlotAreaStyle::No;
-			series2->SmartLabelStyle->CalloutLineAnchorCapStyle = System::Windows::Forms::DataVisualization::Charting::LineAnchorCapStyle::Diamond;
-			this->chart1->Series->Add(series2);
+			series1->Name = L"Series1";
+			series1->SmartLabelStyle->AllowOutsidePlotArea = System::Windows::Forms::DataVisualization::Charting::LabelOutsidePlotAreaStyle::No;
+			series1->SmartLabelStyle->CalloutLineAnchorCapStyle = System::Windows::Forms::DataVisualization::Charting::LineAnchorCapStyle::Diamond;
+			this->chart1->Series->Add(series1);
 			this->chart1->Size = System::Drawing::Size(732, 415);
 			this->chart1->TabIndex = 0;
-			this->chart1->Text = L"chart1";
+			this->chart1->Text = L"C:";
 			// 
 			// H
 			// 
@@ -296,7 +304,7 @@ namespace spline_interpolation_v2 {
 			// 
 			// _xdash0
 			// 
-			this->_xdash0->Location = System::Drawing::Point(226, 38);
+			this->_xdash0->Location = System::Drawing::Point(226, 76);
 			this->_xdash0->Name = L"_xdash0";
 			this->_xdash0->Size = System::Drawing::Size(43, 20);
 			this->_xdash0->TabIndex = 39;
@@ -329,7 +337,7 @@ namespace spline_interpolation_v2 {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(189, 41);
+			this->label6->Location = System::Drawing::Point(189, 79);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(31, 13);
 			this->label6->TabIndex = 45;
@@ -375,9 +383,9 @@ namespace spline_interpolation_v2 {
 			this->label9->AutoSize = true;
 			this->label9->Location = System::Drawing::Point(118, 9);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(151, 13);
+			this->label9->Size = System::Drawing::Size(162, 13);
 			this->label9->TabIndex = 50;
-			this->label9->Text = L"Уравнение: x\'\' + бx\' + sinx = 0";
+			this->label9->Text = L"Уравнение: x\'\' + бx\' + C*sinx = 0";
 			// 
 			// button3
 			// 
@@ -401,9 +409,9 @@ namespace spline_interpolation_v2 {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(395, 38);
+			this->button5->Location = System::Drawing::Point(502, 54);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(177, 20);
+			this->button5->Size = System::Drawing::Size(129, 38);
 			this->button5->TabIndex = 53;
 			this->button5->Text = L"Сохранить значения в файл";
 			this->button5->UseVisualStyleBackColor = true;
@@ -427,15 +435,37 @@ namespace spline_interpolation_v2 {
 			this->label5->TabIndex = 55;
 			this->label5->Text = L"Программа сделана студентом 3 курса Антоном Кужелевым";
 			// 
-			// button6
+			// _x0
 			// 
-			this->button6->Location = System::Drawing::Point(395, 76);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(177, 20);
-			this->button6->TabIndex = 56;
-			this->button6->Text = L"Фазовый портрет";
-			this->button6->UseVisualStyleBackColor = true;
-			this->button6->Click += gcnew System::EventHandler(this, &Form1::button6_Click);
+			this->_x0->Location = System::Drawing::Point(226, 37);
+			this->_x0->Name = L"_x0";
+			this->_x0->Size = System::Drawing::Size(43, 20);
+			this->_x0->TabIndex = 57;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(197, 40);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(23, 13);
+			this->label10->TabIndex = 58;
+			this->label10->Text = L"X0:";
+			// 
+			// C
+			// 
+			this->C->Location = System::Drawing::Point(412, 57);
+			this->C->Name = L"C";
+			this->C->Size = System::Drawing::Size(47, 20);
+			this->C->TabIndex = 59;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(389, 60);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(17, 13);
+			this->label11->TabIndex = 60;
+			this->label11->Text = L"C:";
 			// 
 			// Form1
 			// 
@@ -443,7 +473,10 @@ namespace spline_interpolation_v2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->ClientSize = System::Drawing::Size(829, 597);
-			this->Controls->Add(this->button6);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->C);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->_x0);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->changed);
 			this->Controls->Add(this->button5);
@@ -486,6 +519,10 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->lambda->Text = Convert::ToString(lambda);
 	double x0dash = this->_xdash0->Text == "" ? 1 : Convert::ToDouble(this->_xdash0->Text);
 	this->_xdash0->Text = Convert::ToString(x0dash);
+	double _x0 = this->_x0->Text == "" ? 1 : Convert::ToDouble(this->_x0->Text);
+	this->_x0->Text = Convert::ToString(_x0);
+	double C = this->C->Text == "" ? 1 : Convert::ToDouble(this->C->Text);
+	this->C->Text = Convert::ToString(C);
 
 	if(this->chart1->Series[num_of_series]){
 		this->chart1->Series->Add(Convert::ToString(++num_of_series));
@@ -496,9 +533,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	std::vector<double> res;
 	std::vector<double> res_v;
 	int count = 0;
-	runge_kutta(begin, end, h, lambda, x0dash, res, res_v);
+	runge_kutta(begin, end, h, lambda, _x0, x0dash, C, res, res_v);
 	for (double i = begin; i < end; i += h) {
-		this->chart1->Series[num_of_series]->Points->AddXY(i, res[count]);
+		this->chart1->Series[num_of_series]->Points->AddXY(res[count], res_v[count]);
 		count++;
 	}
 }
@@ -526,10 +563,16 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	this->lambda->Text = Convert::ToString(lambda);
 	double x0dash = this->_xdash0->Text == "" ? 1 : Convert::ToDouble(this->_xdash0->Text);
 	this->_xdash0->Text = Convert::ToString(x0dash);
+	double _x0 = this->_x0->Text == "" ? 1 : Convert::ToDouble(this->_x0->Text);
+	this->_x0->Text = Convert::ToString(_x0);
+	double C = this->C->Text == "" ? 1 : Convert::ToDouble(this->C->Text);
+	this->C->Text = Convert::ToString(C);
+
+
 
 	std::vector<double> res;
 	std::vector<double> res_v;
-	runge_kutta(begin, end, h, lambda, x0dash, res, res_v);
+	runge_kutta(begin, end, h, lambda, _x0, x0dash, C, res, res_v);
 	int count = 0;
 	std::ofstream ofs;
 	ofs.open("Output.txt");
@@ -541,7 +584,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	for (int i = -5; i < 6; ++i) {
-		this->_xdash0->Text = Convert::ToString(i);
+		this->_x0->Text = Convert::ToString(i);
 		button1_Click(sender, e);
 	}
 
